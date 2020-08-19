@@ -19,6 +19,10 @@ export const signup = async (req: Request, res: Response): Promise<any> => {
       throw new Error(`Invalid email`);
     }
 
+    if (password.length < 6) {
+      throw new Error(`The password must contain at least 6 characters`);
+    }
+
     const idGenerator = new IdGenerator();
     const id = idGenerator.generate();
 
