@@ -1,7 +1,7 @@
 import BaseDatabase from './BaseDatabase';
 
 export default class UserDatabase extends BaseDatabase {
-  private static TABLE_NAME: string = 'Users';
+  private static TABLE_NAME: string = 'users';
 
   public async createUser(
     id: string,
