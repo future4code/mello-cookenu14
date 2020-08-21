@@ -19,7 +19,7 @@ export default class FollowDatabase extends BaseDatabase {
     await this.getConnection()
       .del()
       .from(FollowDatabase.TABLE_NAME)
-      .where(follower_id === follower_id)
-      .where(followed_id === followed_id);
+      .where(follower_id, "follower_id")
+      .andWhere(followed_id, "followed_id");
   }
 }
