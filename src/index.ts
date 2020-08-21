@@ -12,6 +12,7 @@ import { createRecipe } from "../endpoints/createRecipe";
 import { getRecipe } from "../endpoints/getRecipe";
 import { followUser } from "../endpoints/followUser";
 import { unFollowUser } from "../endpoints/unFollowUser";
+import { getFeed } from "../endpoints/getFeed";
 
 dotenv.config();
 
@@ -20,12 +21,14 @@ app.use(express.json());
 
 app.post("/signup", signup);
 app.post("/login", login);
-app.get("/user/profile", getUserProfile);
-app.get("/user/:id", getOtherUserProfile);
 app.post("/recipe", createRecipe);
-app.get("/recipe/:id", getRecipe);
 app.post("/user/follow", followUser);
 app.post("/user/unfollow", unFollowUser);
+
+app.get("/user/profile", getUserProfile);
+app.get("/user/feed", getFeed);
+app.get("/user/:id", getOtherUserProfile);
+app.get("/recipe/:id", getRecipe);
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
